@@ -10,7 +10,15 @@
 	in
 	{
 		devShells.${system}.default = pkgs.mkShell {
-			packages = [ pkgs.cmake pkgs.gitFull pkgs.nano pkgs.wget pkgs.curl ];
+			nativeBuildInputs = [
+				pkgs.pkg-config
+			];
+			buildInputs = [
+				pkgs.stdenv.cc.cc.lib
+			];	
+			packages = [ 
+				pkgs.cmake pkgs.gitFull pkgs.nano pkgs.wget pkgs.curl pkgs.spdlog
+			 ];
 		};
 	};
 }
